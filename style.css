@@ -1,0 +1,151 @@
+body {
+	background: #a0d190;
+	font-size: 16px;
+	overflow: hidden;
+}
+
+section {
+	color: #333;
+	font-family: sans-serif;
+	left: 50%;
+	margin-right: -50%;
+	padding: 0 1em;
+	position: absolute;
+	text-align: center;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}
+
+h1,
+h2 {
+	margin: 0;
+}
+
+h1 {
+	font-size: calc(16px + 4vh);
+	text-transform: uppercase;
+}
+
+h2 {
+	font-size: calc(16px + 1.2vh);
+	font-weight: 500;
+	margin-bottom: 2em;
+	margin-top: 0.5em;
+}
+
+a {
+	color: #333;
+	display: inline-block;
+	transform-origin: bottom left;
+	transition-duration: 0.3s;
+	transition-timing-function: ease-in-out;
+}
+
+a:hover {
+	color: #000;
+	transform: scale(1.1);
+}
+
+svg {
+	height: 50vh;
+}
+
+#arm-r {
+	animation: press-r ease-in-out 2s;
+	animation-iteration-count: infinite;
+	transform-origin: center center;
+}
+
+#arm-l {
+	animation: press-l ease-in-out 2s;
+	animation-iteration-count: infinite;
+	transform-origin: center center;
+}
+
+.konami-container {
+	animation: zebrasize 0.8s ease-in 1 both;
+	animation-iteration-count: 1;
+	bottom: -10%;
+	position: absolute;
+	right: 0;
+	transform: rotate(-19deg);
+	z-index: 2;
+}
+
+.konami-container img {
+	max-height: 100vh;
+	max-width: 80vw;
+}
+
+blockquote.bubble {
+	background-position: center;
+	background-repeat: no-repeat !important;
+	background-size: 100% 100%;
+	box-sizing: content-box;
+	height: 0;
+	line-height: 1;
+	margin: 0 auto;
+	position: relative;
+	text-align: center;
+	z-index: 1;
+}
+
+blockquote.electric {
+	animation: bubble 0.4s ease 1s 1 both;
+	background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/electric.svg);
+	bottom: 45vh;
+	height: 10vw;
+	padding: 8% 26% 0% 10%;
+	position: absolute;
+	right: 25vw;
+	width: 0;
+}
+blockquote.electric img {
+	left: 39%;
+	padding: 0 1em;
+	position: absolute;
+	top: 48%;
+	transform: translate(-50%, -50%);
+}
+
+@keyframes bubble {
+	0% {
+		transform: scale(0) rotate(180deg);
+	}
+	100% {
+		transform: scale(1) rotate(-360deg);
+	}
+}
+
+@keyframes press-l {
+	20% {
+		transform: translate(-2vh, -2vh) rotate(6deg);
+	}
+
+	40%,
+	100% {
+		transform: translate(0px, 0px) rotate(0deg);
+	}
+}
+
+@keyframes press-r {
+	20% {
+		transform: translate(2vh, -2vh) rotate(-6deg);
+	}
+
+	40%,
+	100% {
+		transform: translate(0px, 0px) rotate(0deg);
+	}
+}
+
+@keyframes zebrasize {
+	0% {
+		bottom: -100%;
+		right: -100%;
+	}
+	100% {
+		bottom: -10%;
+		right: 0;
+	}
+}
